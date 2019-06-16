@@ -64,7 +64,7 @@ LightBox.statusLightBox = function(HtmlMsg, timeMiliSec, isError, nivel) {
 	} else {
 		res += '<svg id="svgSuccessLightbox" viewBox="0 0 86 86" style="width: 72px;height:auto;"> ';
 		res += '  <circle cx="43" cy="43" r="34" fill="#6AC259" /> ';
-		res += '  <path d="M21 41 L36 56 L51 41 L66 26" stroke="#F3F3F3" stroke-width="7" fill="none" /> ';
+		res += '  <path d="M19 41 L35 56 L49 41 L64 26" stroke="#F3F3F3" stroke-width="7" fill="none" /> ';
 		res += '</svg> ';
 	}
 	// fim svg
