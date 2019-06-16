@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<title>Teste</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		html, body {
+			margin: 0px;
+			border: 0px;
+			padding: 0px;
+		}
+		.divTeste {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.divTeste > button {
+			display: block;
+			margin: 15px 0px;
+		}
+	</style>
+
+
+
+
+	<!-- CSS's -->
+	<link href="lightbox.css" rel="stylesheet">
+	<!-- JS's -->
+	<script src="lightbox.js"></script>
+
+
+
+
+	
+</head>
+<body>
+
+	<!-- LIGHTBOX HTML -->
+	<div class="divLightbox1"></div>
+	<div><div></div></div>
+
+	<div class="divLightbox2"></div>
+	<div><div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- TEST BUTTONS -->
+	<div class="divTeste">
+		<button onclick="button1();">SUCESS - DEFAULT TIME TO CLOSE</button>
+		<button onclick="button2();">SUCESS - CLOSE MANUALLY</button>
+		<button onclick="button3();">ERROR - DEFAULT TIME TO CLOSE</button>
+		<button onclick="button4();">ERROR - CLOSE MANUALLY</button>
+		<button onclick="button5();">LOADER</button>
+		<button onclick="myLightBox();">MY CUSTOM LIGHTBOX, 2 NÍVEIS</button>
+	</div>
+
+	<script>
+		function button1() {
+			LightBox.statusLightBox(
+				'O registro foi salvo com sucesso!', // HTML texto, ESCAPE if you need?
+				undefined, // default timeMiliSec is 2600
+				false, // default isError is false
+				undefined  // default nivel is 1. use 1 or 2
+			);
+		}
+		function button2() {
+			LightBox.statusLightBox(
+				'O registro foi salvo com sucesso! escape html?', // HTML texto, ESCAPE if you need?
+				-1, // Infinity Time
+				false, // ERROR
+				undefined  // default nivel is 1. use 1 or 2
+			);
+		}
+		function button3() {
+			LightBox.statusLightBox(
+				'Exemplo de Erro!', // HTML texto, ESCAPE if you need?
+				undefined, // default timeMiliSec is 2600
+				true, // default isError is false
+				undefined  // default nivel is 1. use 1 or 2
+			);
+		}
+		function button4() {
+			LightBox.statusLightBox(
+				'Exemplo de <b>Erro</b>! escape html?', // HTML texto, ESCAPE if you need?
+				-1, // Infinity Time
+				true, // ERROR
+				undefined  // default nivel is 1. use 1 or 2
+			);
+		}
+		function button5() {
+			LightBox.loading(
+				undefined, // Default is Carregando...
+				function() {
+					console.log('sincronizado pós exibição');
+				}
+			);
+			setTimeout(function() {
+				LightBox.hideLightBox();
+			}, 2500);
+		}
+		function myLightBox() {
+			var res = '';
+			
+			res += LightBox.getHtmlClose('My Title', 1);
+			res += '<div style="text-align: center;padding: 20px;">';
+			res += '	Hello World!!! ';
+			res += '	<br /><br /> ';
+			res += '	<button onclick="LightBox.statusLightBox(\'Sucesso!!!\', undefined, undefined, 2);">2º Nível</button>';
+			res += '</div>';
+
+			LightBox.renderLightBox(
+				res,
+				'500px' // Maxwidth, responsive.
+			);
+		}
+	</script>
+</body>
+</html>
