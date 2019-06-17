@@ -34,7 +34,7 @@
 }
 .divLightbox1 + div *, .divLightbox2 + div * {
 	color: #000;
-	font-family: 'Tahoma';
+	font-family: 'Tahoma', sans-serif;
 	font-size: 16px;
 }
 .divLightbox1 + div > div, .divLightbox2 + div > div {
